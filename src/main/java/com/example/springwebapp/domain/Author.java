@@ -1,22 +1,31 @@
 package com.example.springwebapp.domain;
 
-import org.hibernate.annotations.ManyToAny;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
 @Entity
 public class Author {
-    String firstName;
-    String lastName;
+    private String firstName;
+    private String lastName;
 
     @ManyToMany(mappedBy = "authors")
-    Set<Book> books;
+    private Set<Book> books = new HashSet<>();
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    public Author(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public Author() {
+
+    }
 
     public String getFirstName() {
         return firstName;
@@ -46,7 +55,6 @@ public class Author {
         this.id = id;
     }
 
-    @Id
     public Long getId() {
         return id;
     }
