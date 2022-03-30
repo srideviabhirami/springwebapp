@@ -69,12 +69,12 @@ public class Book {
         return id;
     }
 
+
     @Override
     public String toString() {
         return "Book{" +
                 "title='" + title + '\'' +
                 ", isbn='" + isbn + '\'' +
-                ", authors=" + authors +
                 ", id=" + id +
                 '}';
     }
